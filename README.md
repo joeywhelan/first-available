@@ -16,7 +16,7 @@ A Netomi virtual agent handles appliance-repair support for "Summit Home Service
 The agent never touches the database directly. It reaches AlloyDB only through a small local MCP server that offers three tools. A simulated customer (Claude) talks to the agent through the Netomi Chat API, and the notebook checks the database after each conversation to confirm the agent did the right thing.
 
 ## Presentation <a name="presentation"></a>
-Slide deck: coming soon.
+[Slide deck](https://joeywhelan.github.io/first-available/)
 
 ## Architecture <a name="architecture"></a>
 ![architecture](assets/images/arch.png)
