@@ -1,0 +1,55 @@
+# Rules in the Tools LinkedIn Cover Design Specification
+
+Cover image for the LinkedIn article "Rules in the Tools: a Netomi Agent with Live Search on AlloyDB". The title appears only in the article, never in the image.
+
+A stylised LinkedIn cover image: a miniature architectural scale model of one short street at dusk, built from white card, basswood and frosted acrylic, like a model on an architect's table, photographed in a studio. Not an architecture diagram, not a flat illustration and not a stock photo. The story is the customer's side of the demo, from chat to booked visit, and must read in two seconds: a home has a broken, leaking dishwasher; the customer asks for help in a chat; the agent answers and books a visit; and a single lit route now runs from a repair workshop to that home's front door, where a porch light is on. The visit is booked and the technician is expected.
+
+**Canvas:** 1920 × 1080 px, 16:9, the size LinkedIn specifies for an article cover image. LinkedIn crops uploads to 16:9, so matching it exactly means nothing is lost. Deliver the image as a PNG file, not JPEG, WEBP or GIF. The background is a deep graphite (#101217), with a soft, smooth falloff of light around the model, like a studio backdrop. No smoke, fog, haze, dust or atmospheric texture.
+
+**Framing:** The model sits slightly below centre, its full footprint and the floating bubbles inside the frame, with at least 10% clear margin on the left and right edges and 12% on the top and bottom. Nothing touches or crosses a border. LinkedIn shows the cover at 16:9 on the article page but at a shorter 1.91:1 ratio in feed previews, so the model must be clearly wider than it is tall and fully readable in the central band. Keep the upper 12% empty.
+
+**Camera and Render:**
+- Isometric-leaning three-quarter view from slightly above, as if leaning over a model on a table
+- Shallow depth of field: the home, the route and the workshop are sharp; only the far back edge of the base softens slightly
+- Cool, dim dusk lighting overall, with a soft key light from the upper left, a faint cool rim light from the right, and gentle contact shadows under every object
+- Materials: matte white card and foam board with crisp, cleanly cut edges; pale basswood for roofs and trims; frosted acrylic for windows. Precise and hand-made, never glossy plastic and never photoreal. Colour comes only from light and from the few accents listed below
+
+**The Model (one long, low rectangular base):**
+The base is a low, wide board of pale basswood with softly eased edges. On top, one straight street runs from left to right across the board, scored into white card. A few small, rounded, bead-like trees line the board's edges. Far in the background, one or two small, plain, unlit houses give a sense of neighbourhood; they are simple and quiet, and must not compete with the two main buildings. Only two buildings matter:
+- **The home (left, the focal point):** a small two-storey house, nearer the camera and larger in the frame than anything else, whose front wall is cut away, as architectural models often are, to show the kitchen inside. In the kitchen, a dishwasher stands with its door lowered flat; water is clearly pooled in the bottom of its tub, and a small, glassy puddle has spread from it across the kitchen floor, catching the light. The leak must be obvious at a glance. The kitchen window glows a warm amber (#F5A524). It is the warmest, most detailed object on the board.
+- **The repair workshop (right):** a small, neat workshop on the same street, facing it, with a flat roof and a wide open door. Mounted above the door, like a traditional trade sign, is a large sculpted **wrench**, cut from the same matte white card as the buildings, clearly readable as a wrench. Its open door glows cyan (#3DD6D0), the only cyan door on the board.
+- **The route (the booked visit):** a single, solid line of cyan (#3DD6D0) light, inset flush into the street surface like a fibre-optic strip, leaves the workshop's glowing door, runs along the street and ends at the home's front step. It is direct and simple, with no detours, and it is the only lit line on the board. It reads as the technician's way to the customer, not the customer's way to the shop.
+- **The porch light (the booking confirmed):** a small lantern beside the home's front door glows cyan (#3DD6D0), where the route arrives, like a light left on for an expected visitor. It is the only cyan on the home.
+
+**The Chat Exchange (above the home):**
+Two rounded chat bubbles float in the air above the model, made of the same frosted acrylic as the windows, lit softly from within, with no stems or strings. Together they read as a conversation at a glance: one side asks, the other answers.
+- **Customer bubble (amber #F5A524), upper left:** it floats directly above the home, and its tail points straight down at the home's roof, so the question clearly comes from that kitchen.
+- **Agent bubble (violet #9B7BFF), right of it and slightly lower:** it floats above the street just beyond the home, and its tail points down at the cyan route where it reaches the home, so the agent's answer is what booked the visit.
+- The two bubbles are about the same size, each roughly the width of the home's roof, and are offset like a chat thread: the customer's first, higher and to the left, the agent's reply after it, lower and to the right. They don't overlap.
+- Inside each bubble are two or three short raised bars in a slightly lighter shade of the bubble's own colour, standing in for lines of a message. The bars are plain rounded shapes, never letters. The agent bubble holds three bars and the customer bubble two, so the reply looks a little fuller.
+
+**Text:**
+None. **No title, no headline, no labels, no letters, numbers or glyphs of any kind anywhere in the frame.** No words on the wrench sign or any building, no street names, no house numbers, no stars or ratings. The bubbles hold only plain raised bars that must not become readable text or pseudo-text.
+
+**Exclusions:**
+- The sculpted wrench above the workshop door is the only symbol in the scene. Apart from it: no map pins, arrows, icons, checkmarks, question marks, stars, emoji, boxes or borders
+- No other workshops, shops or prominent buildings: just the home, the workshop and the quiet background houses
+- No people, figurines, hands, faces, animals, robots or avatars
+- No vehicles: no vans, trucks or cars on the street
+- No phones, laptops, screens, browser windows or app interfaces
+- No database cylinders, servers, cables, network nodes or glowing data streams
+- No walls, prisms, planes of light, portals, beams or anything that objects pass through
+- No smoke, fog, mist, dust, sparks, lens flare, bloom, light rays or chromatic fringing
+- No logo anywhere in the frame: no Netomi brandmark or wordmark, and no other company mark, badge or watermark
+
+**Palette:**
+- Background: graphite #101217, with a soft studio falloff
+- Model: matte white card, pale basswood, and frosted acrylic, lit cool and dim; the wrench sign is matte white card, not lit
+- Home: amber #F5A524 glow in the kitchen window; the pooled water and the puddle clear and colourless, catching light
+- Chat bubbles: amber #F5A524 for the customer, violet #9B7BFF for the agent
+- Route, workshop door and the home's porch light: cyan #3DD6D0
+- Trees: pale grey-green beads, very muted
+- No pink, no red, no bright blue. Cyan appears only on the route, the workshop door and the porch light; violet only on the agent bubble; amber only on the customer bubble and the home's window
+
+**Mood:**
+Calm, precise and warm: a scene someone would stop scrolling for. It should feel like a small, real street where one customer's problem was sorted out, not like tech marketing. The read is *from chat to booked visit*: a broken dishwasher, a quick chat, and a technician expected at the door.

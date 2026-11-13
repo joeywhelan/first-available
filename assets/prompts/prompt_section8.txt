@@ -1,0 +1,23 @@
+# Section 8 — Conversation 2: Slot Taken, Agent Recovers
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section8.png`, under 1 MB) illustrating that another customer takes a time slot moments before our customer asks for it, the booking attempt comes back refused, and the agent immediately books the technician's other time. The agent on the left, the technician's two time slots in the centre and right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: violet (#9B7BFF) for the agent, cyan (#3DD6D0) for the booking arrows, amber (#F5A524) for the other customer, muted grey (#6B7280) for the taken slot, and green (#5BD67A) for the slot that ends up booked. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: the agent** — a violet rounded rectangle labelled "virtual agent".
+- **Centre to right: the technician's slots** — a header in light grey, "Tessa Nguyen", above two large slot tiles side by side, the largest elements:
+  - Left tile, filled muted grey: "Fri Nov 13, 9:00 AM", with "Another Customer" beneath.
+  - Right tile, outlined green: "Fri Nov 13, 1:00 PM", with "Casey Rivera" beneath.
+- **The other customer** — a small amber rounded rectangle above the left tile labelled "another customer", with a short thick amber arrow down into the left tile.
+- **First attempt** — a cyan arrow from the agent to the left tile that turns back toward the agent just before touching it, labelled "time_taken", with a small cyan circle badge "1".
+- **Second attempt** — a cyan arrow from the agent to the right tile, labelled "booked: true", with a small cyan circle badge "2".
+
+**Design principle:**
+The image communicates a single idea: "lost the race, recovered in one step." The amber arrow must visibly reach the left tile first, and the first cyan arrow must clearly bounce back rather than land.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `virtual agent`, `Tessa Nguyen`, `Fri Nov 13, 9:00 AM`, `Another Customer`, `Fri Nov 13, 1:00 PM`, `Casey Rivera`, `another customer`, `time_taken`, `1`, `booked: true`, `2`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. "Another Customer" (on the tile) and "another customer" (the node) differ in capitals by design. Keep the comma in each time. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No clocks, calendars, chat bubbles, people or avatars. Only the nodes, arrows, and labels listed above appear in the frame.

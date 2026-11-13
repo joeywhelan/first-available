@@ -1,0 +1,21 @@
+# Section 3 — AlloyDB as a Search Engine
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section3.png`, under 1 MB) illustrating that one customer query runs two searches inside AlloyDB, keyword and vector, and that their two rankings are fused into one hybrid ranking. The query on the left, the two search lanes in the centre, the fusion and its result on the right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: amber (#F5A524) for the query and its arrows, green (#5BD67A) for the two searches and the fusion step, and light grey for result rows. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: the query** — an amber rounded rectangle labelled "KD-412 door seal". Its arrow splits into two amber arrows, one to each search lane.
+- **Centre top: keyword search** — a green rounded rectangle titled "BM25" with "pg_textsearch" beneath.
+- **Centre bottom: vector search** — a green rounded rectangle titled "ScaNN" with "alloydb_scann" beneath.
+- **Centre right: the fusion** — the largest element, a green rounded rectangle titled "RRF" with "1/(60 + rank)" beneath. A green arrow runs into it from each search lane.
+- **Right: the hybrid ranking** — three stacked light-grey result rows, each with a small rank number on its left: "1" "KS-GSK-600", "2" "KS-GSK-412", "3" "NF-GSK-300". One green arrow runs from RRF to the rows.
+
+**Design principle:**
+The image communicates a single idea: "two searches, one fused ranking." The two lanes must be parallel and equal in size, and only the fusion step produces the final list.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `KD-412 door seal`, `BM25`, `pg_textsearch`, `ScaNN`, `alloydb_scann`, `RRF`, `1/(60 + rank)`, `1`, `KS-GSK-600`, `2`, `KS-GSK-412`, `3`, `NF-GSK-300`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. Pay particular attention to the slash, parentheses and spaces in `1/(60 + rank)`, and keep the three part numbers in exactly this order. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No magnifying glasses, funnels or star ratings. Only the nodes, arrows, and labels listed above appear in the frame.

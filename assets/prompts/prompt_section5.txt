@@ -1,0 +1,20 @@
+# Section 5 — Configure the Netomi Agent
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section5.png`, under 1 MB) illustrating that the Netomi agent is assembled in Agentic Studio from three pasted files plus the MCP server, whose tools describe themselves. The files on the left, the agent in the centre, the MCP server on the right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: violet (#9B7BFF) for the agent, cyan (#3DD6D0) for the MCP server and its arrow, a dashed light-slate (#C7CCDA) outline for the Agentic Studio boundary, and muted grey (#6B7280) for files and their arrows. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: three files** — three small muted-grey document icons stacked vertically, top to bottom: "agent-instructions.md", "booking-playbook.md", "knowledge.md". Each has one thin grey arrow into the agent, labelled in order "instructions", "playbook", "knowledge".
+- **Centre: Agentic Studio** — a dashed light-slate rounded rectangle labelled "Netomi Agentic Studio" at its top-left.
+- **Inside it: the agent** — the largest element, a violet rounded rectangle labelled "virtual agent".
+- **Right, outside the boundary: the MCP server** — a cyan rounded rectangle labelled "MCP server". One thick cyan arrow runs from it into the agent, labelled "tool descriptions".
+
+**Design principle:**
+The image communicates a single idea: "four inputs make the agent." The three files are pasted in by hand, so their arrows are thin and grey; the tools arrive from the server itself, so its arrow is thick and cyan.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `agent-instructions.md`, `booking-playbook.md`, `knowledge.md`, `instructions`, `playbook`, `knowledge`, `Netomi Agentic Studio`, `virtual agent`, `MCP server`, `tool descriptions`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. Pay particular attention to the hyphens in `agent-instructions.md` and `booking-playbook.md`. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No screenshots, form fields, gears or sliders. Only the nodes, arrows, and labels listed above appear in the frame.

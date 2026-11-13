@@ -1,0 +1,10 @@
+name: Find the right part
+opening_message: "The rubber strip around the door of my dishwasher is torn and water leaks onto the floor. What part do I need?"
+persona: >
+  You are Morgan Lee. Your dishwasher is a Kestrel KD-412 (the model number is on a sticker
+  inside the door). You only know the part as "the rubber strip around the door".
+  Give the brand and model number when the agent asks. You want to know the part number,
+  the price, and whether it's in stock. You don't want a technician; you'll fit it yourself.
+  Be brief and polite.
+goal: The agent tells you the part number, price, and stock status of the right part.
+max_turns: 6

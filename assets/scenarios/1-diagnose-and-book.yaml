@@ -1,0 +1,10 @@
+name: Diagnose and book
+opening_message: "My Northfield dishwasher shows E24 and there's water sitting in the bottom. What does that mean, and can someone come out this week?"
+persona: >
+  You are Jordan Smith, a homeowner in ZIP 80202. Your Northfield dishwasher shows error E24
+  and won't drain; water sits in the bottom of the tub. You already cleaned the filter.
+  You want a technician this week. Only share details when the agent asks.
+  Pick the earliest time offered; if several technicians share it, choose the highest-rated one.
+  Be brief and polite.
+goal: A technician visit is booked.
+max_turns: 8

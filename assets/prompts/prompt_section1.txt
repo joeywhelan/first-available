@@ -1,0 +1,21 @@
+# Section 1 — Backend Setup
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section1.png`, under 1 MB) illustrating that one `terraform apply` from the notebook builds the whole Google Cloud backend: a private network, an AlloyDB database inside it, and the database's permission to call Vertex AI for embeddings. The notebook on the left, Google Cloud filling the centre and right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: amber (#F5A524) for the notebook and its arrow, green (#5BD67A) for AlloyDB and Vertex AI, a dashed light-slate (#C7CCDA) outline for the Google Cloud and network boundaries, and muted grey (#6B7280) for files and the database user tag. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: the notebook** — an amber rounded rectangle labelled "demo.ipynb". Below it, a small muted-grey document icon labelled "main.tf" with a thin grey arrow up into the notebook. One thick amber arrow runs from the notebook right into the Google Cloud boundary, labelled "terraform apply".
+- **Centre to right: Google Cloud** — a large dashed light-slate rounded rectangle labelled "Google Cloud" at its top-left, holding everything else.
+- **Centre, inside Google Cloud: the network** — a smaller dashed light-slate rounded rectangle labelled "summit-demo-net" at its top-left.
+- **Inside the network: AlloyDB** — the largest element, a green rounded rectangle titled "AlloyDB", with two lines beneath the title in light grey: "PostgreSQL 18" and "c4a-highmem-1". Attached to its lower edge, a small muted-grey tag labelled "mcp_search".
+- **Right, inside Google Cloud but outside the network: Vertex AI** — a green rounded rectangle labelled "Vertex AI". One thin green arrow runs from AlloyDB to Vertex AI, labelled "roles/aiplatform.user".
+
+**Design principle:**
+The image communicates a single idea: "one command builds everything the demo needs." The amber arrow is the only thing that enters Google Cloud, and AlloyDB must visibly sit inside the network boundary while Vertex AI sits outside it.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `demo.ipynb`, `main.tf`, `terraform apply`, `Google Cloud`, `summit-demo-net`, `AlloyDB`, `PostgreSQL 18`, `c4a-highmem-1`, `mcp_search`, `Vertex AI`, `roles/aiplatform.user`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. Pay particular attention to the slash in `roles/aiplatform.user` and to the hyphens in `c4a-highmem-1` and `summit-demo-net`. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No cloud shapes, server racks, padlocks or key icons. Only the nodes, arrows, and labels listed above appear in the frame.

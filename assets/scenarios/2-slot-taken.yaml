@@ -1,0 +1,9 @@
+name: Slot taken, agent recovers
+opening_message: "Hi, my Kestrel dishwasher isn't draining. Can I get a technician out?"
+persona: >
+  You are Casey Rivera, a homeowner in ZIP 80903. Your Kestrel dishwasher isn't draining and
+  leaves dirty water in the tub. Only share details when the agent asks.
+  Always pick the earliest time offered. If that time turns out to be taken, accept the next
+  time the agent offers. Be brief and polite.
+goal: A technician visit is booked.
+max_turns: 10

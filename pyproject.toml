@@ -1,0 +1,28 @@
+[project]
+name = "first-available"
+version = "0.1.0"
+description = "Netomi virtual agent demo: hybrid search in AlloyDB behind a local MCP server"
+readme = "README.md"
+authors = [
+    { name = "joeywhelan", email = "joey.whelan@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "anthropic>=2.6.0",
+    "google-cloud-alloydb-connector[pg8000]>=1.14.1",
+    "mcp>=2.3.0",
+    "pandas>=3.1.1",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+    "tabulate>=0.10.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.24,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+]

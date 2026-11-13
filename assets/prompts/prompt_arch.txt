@@ -1,0 +1,83 @@
+# Summary
+
+The request presents a detailed specification for creating an architecture diagram for a demo in which a Netomi virtual agent answers appliance-repair customers for a fictional company and reaches live data in AlloyDB on Google Cloud only through a small MCP server on a laptop, published through a single ngrok tunnel. The customer is simulated: a Jupyter notebook on the laptop runs a scripted persona whose messages are written by the Claude API and sent to the agent through the Netomi Chat API. AlloyDB acts as a search engine (BM25 keyword search plus ScaNN vector search over Vertex AI embeddings).
+
+**Primary Focus:** Visualize three places, the Netomi cloud, the laptop and the backing clouds, and the paths between them: customer chat going into Netomi, the agent's tool calls coming out through the tunnel, and the MCP server's narrow path into AlloyDB. The reader should see at a glance that the agent never touches the database: its only way in is three tools, through one authenticated tunnel, to a server whose database user can run three functions and nothing else.
+
+**Layout — four regions and two gaps:**
+- Left, taking about 27% of the width: one large dashed boundary box, `Netomi Agentic Studio`, its name at the top-left inside the box
+- Centre, taking about 28% of the width: one dashed boundary box, `laptop`, its name at the top-left inside the box
+- Right, taking about 25% of the width, two dashed boundary boxes stacked top to bottom:
+  - Top, the shorter (about 25% of the height): `Anthropic`
+  - Bottom, the taller: `Google Cloud`, with a small dim subtitle `us-east4 · built by Terraform` under its name. The region is exactly `us-east4`: never `us-central1` or any other region
+- Between Netomi and the laptop, a clear empty gap of about 11% of the width. It holds two crossings at different heights:
+  - Upper: the chat arrow between the laptop's `simulated customer` and Netomi's `virtual agent`
+  - Lower: the `ngrok` tunnel node, sitting on neither side
+- Between the laptop and the right-hand column, a clear empty gap of about 6% of the width. It holds two crossings at different heights:
+  - Upper: the arrow from `simulated customer` to `Claude API`
+  - Lower: the arrows from the laptop into `AlloyDB`
+- Every gap must be wide enough to hold its labels without touching any dashed boundary
+
+**Nodes:**
+- Netomi boundary, two rows:
+  - Top row, level with the upper crossings: `virtual agent` / `instructions + knowledge`, violet, the largest Netomi node. Directly below it and to the left, a small muted grey node `knowledge.pdf`
+  - Lower row, level with the tunnel: a node drawn as a stack of three rows, titled `MCP tools`, with the rows `search_technicians` / `search_parts` / `book_slot`, violet, placed at the right side of the boundary, closest to the tunnel. Make it wide enough that each name fits on one line at the minimum arrow-label size; never wrap, hyphenate or shrink a name
+- Gap between Netomi and the laptop: `ngrok`, coral, drawn as a short horizontal pipe or tube rather than a box. No domain name or URL appears under or beside the pipe
+- Laptop boundary, four rows top to bottom:
+  - Top row, level with the upper crossings: `simulated customer` / `customer.py · netomi.py`, amber
+  - Second row: `demo.ipynb` / `Jupyter Notebook`, amber, directly below `simulated customer` and aligned with it
+  - Third row, level with the tunnel: `MCP server` / `mcp_server.py :8000`, cyan, the largest node in the laptop boundary, spanning most of the boundary's width
+  - Bottom row: one small muted grey node `mcp_server.log`, below the right half of `MCP server`
+- Anthropic boundary: one node `Claude API` / `writes the customer's lines`, amber, level with `simulated customer`
+- Google Cloud boundary, two rows:
+  - Top row, level with `MCP server`: `AlloyDB` / `BM25 + ScaNN hybrid search`, green, the largest node on the right
+  - Bottom row: `Vertex AI` / `gemini-embedding-001`, green, smaller, directly below `AlloyDB`
+
+**Connection Labels** (each arrow in its source's colour unless stated):
+- `simulated customer` ↔ `virtual agent`: "Netomi Chat API" (amber, double-headed, crossing the left gap leftward at the upper level; it carries both the customer's messages and the agent's replies, so no separate reply arrow is drawn). Place the label in the gap, above the arrow
+- `knowledge.pdf` → `virtual agent`: "knowledge source" (thin grey, short, upward)
+- `virtual agent` → `MCP tools`: "tool calls" (violet, short, downward)
+- `MCP tools` → `ngrok`: "HTTPS + Bearer token" (coral, **thick**, the only call Netomi makes out to the laptop). Place this label in the left gap, centred above the `ngrok` pipe, on one or two lines ("HTTPS +" over "Bearer token"), with clear space between it and both dashed boundaries. No dashed line may run through any label
+- `ngrok` → `MCP server`: "tunnel to :8000" (coral, thick). Place this label inside the laptop boundary, above the arrow, clear of the laptop's dashed line
+- `simulated customer` → `Claude API`: "next message" (amber, thin, crossing the right gap rightward at the upper level)
+- `MCP server` → `AlloyDB`: "mcp_search: 3 functions only" (cyan, **thick**, crossing the right gap rightward at the tunnel's level, continuing the line of the coral tunnel arrow so the agent's whole path reads as one straight line from `MCP tools` to `AlloyDB`). Place the label inside the Google Cloud boundary, above the arrow, on one or two lines ("mcp_search:" over "3 functions only")
+- `AlloyDB` → `Vertex AI`: "embeddings" (green, thin, short, downward)
+- `MCP server` → `mcp_server.log`: "logs every call" (thin grey, short, downward)
+- `demo.ipynb` → `simulated customer`: "run_scenario" (amber, thin, short, straight up)
+- `demo.ipynb` → `MCP server`: "start / stop" (amber, thin, short, straight down)
+- `demo.ipynb` → `AlloyDB`: "load data + verify" (amber, thin). It leaves the right side of `demo.ipynb`, crosses the right gap between the two upper and lower crossings without touching either, and ends on the upper-left corner area of `AlloyDB`
+
+**Arrow check** — exactly these arrows touch each node, and no others:
+- `virtual agent`: "Netomi Chat API" (to and from `simulated customer`), "knowledge source" (from `knowledge.pdf`) and "tool calls" (to `MCP tools`)
+- `MCP tools`: "tool calls" (in) and "HTTPS + Bearer token" (out, to `ngrok`)
+- `ngrok`: "HTTPS + Bearer token" (in) and "tunnel to :8000" (out)
+- `simulated customer`: "Netomi Chat API", "next message" (to `Claude API`) and "run_scenario" (from `demo.ipynb`)
+- `demo.ipynb`: "run_scenario", "start / stop" and "load data + verify", all outgoing
+- `MCP server`: "tunnel to :8000" (in), "start / stop" (in), "mcp_search: 3 functions only" (out) and "logs every call" (out)
+- `AlloyDB`: "mcp_search: 3 functions only" (in), "load data + verify" (in) and "embeddings" (out)
+- `Claude API`, `Vertex AI`, `knowledge.pdf` and `mcp_server.log`: only their one arrow each
+- No arrow connects `virtual agent` or `MCP tools` directly to `AlloyDB`, and no arrow connects Netomi to Google Cloud or to Anthropic
+
+**Canvas and Sizing — the image is embedded in a GitHub README:** 1600 × 1000 px (16:10), delivered as a PNG file (not JPEG or WEBP), opaque, saved to `assets/images/arch.png`, under 1 MB. GitHub does not crop README images; it scales them to the width of the content column while preserving the aspect ratio. That column measures about 830 px on a desktop repository page and shrinks on smaller screens, so this canvas is a 2× asset that will display at roughly 830 × 520 px. Design for that display size: every label must stay legible at half scale, so the smallest text in the frame is no smaller than 24 px on the 1600-px canvas, node titles are at least 36 px, and arrow labels are at least 28 px. Prefer fewer, larger labels over dense small ones. Keep at least 3% clear margin on every edge. The background must be opaque: GitHub renders the README on a white page in light mode and a near-black page in dark mode, and an opaque dark canvas reads the same on both.
+
+**Visual Approach:** Dark, flat, modern diagram. Background near-black graphite (#101217). All four boundaries are dashed light-slate outlines with a fill very slightly lighter than the background. Colours:
+- Amber (#F5A524): the customer side and the human's notebook: `simulated customer`, `demo.ipynb`, `Claude API`, and their arrows
+- Violet (#9B7BFF): everything Netomi runs: `virtual agent`, `MCP tools`
+- Cyan (#3DD6D0): the local `MCP server` and its arrow into AlloyDB
+- Coral (#FF6B5A): only the `ngrok` tunnel and the two arrows through it
+- Green (#5BD67A): the Google Cloud services, `AlloyDB` and `Vertex AI`
+- Muted grey (#6B7280): the files, `knowledge.pdf` and `mcp_server.log`, and their thin arrows
+
+The gaps are left genuinely empty except for the crossings described above, so the agent's path (violet `MCP tools` → coral tunnel → cyan `MCP server` → green `AlloyDB`) reads as one straight horizontal line across the lower half of the diagram, and the customer's chat reads as a separate amber line across the upper half. No glow except a subtle soft edge on the `MCP server` node and the `AlloyDB` node. No logos or brand marks anywhere: no Netomi, ngrok, Anthropic, Claude, Google Cloud, AlloyDB, Vertex AI, Jupyter, Python, Terraform or GitHub logos, no badges or watermarks. Each component is identified by its text label and its colour only.
+
+**Text Accuracy — spelling is critical and must be verified:**
+Every text string in the diagram must be spelled **exactly** as listed below. Copy these strings character-for-character; do not re-type them from memory, do not pluralise, abbreviate, expand, or "correct" them. Underscores in names are intentional and must not be replaced with spaces or hyphens. The most common failure mode is a **doubled consonant** — "Agenttic", "searrch", "techniccians" — so check every label for repeated letters before finalising. Pay particular attention to: **Agentic**, **search_technicians**, **search_parts**, **book_slot**, **mcp_search**, **mcp_server.py :8000**, **mcp_server.log**, **us-east4** (not us-central1), **gemini-embedding-001**, **customer.py · netomi.py**, **run_scenario**, and **demo.ipynb**.
+
+Complete list of permitted strings — nothing else appears in the frame:
+- Boundaries: `Netomi Agentic Studio`; `laptop`; `Anthropic`; `Google Cloud` with subtitle `us-east4 · built by Terraform`
+- Node labels: `virtual agent` / `instructions + knowledge`; `knowledge.pdf`; `MCP tools` / `search_technicians` / `search_parts` / `book_slot`; `ngrok`; `simulated customer` / `customer.py · netomi.py`; `demo.ipynb` / `Jupyter Notebook`; `MCP server` / `mcp_server.py :8000`; `mcp_server.log`; `Claude API` / `writes the customer's lines`; `AlloyDB` / `BM25 + ScaNN hybrid search`; `Vertex AI` / `gemini-embedding-001`
+- Arrow labels: `Netomi Chat API`; `knowledge source`; `tool calls`; `HTTPS + Bearer token`; `tunnel to :8000`; `next message`; `mcp_search: 3 functions only`; `embeddings`; `logs every call`; `run_scenario`; `start / stop`; `load data + verify`
+
+Before returning the image, proofread every string in the frame against this list letter by letter, and check every arrow against the arrow check above. If any label is misspelled, truncated, or duplicated, regenerate rather than delivering it. Note for whoever runs this prompt: image generators are unreliable with text even when given exact strings. Always proofread the delivered image against this list, and pay closest attention to the largest headings and the long ngrok domain, where errors are least likely to be noticed and most visible to readers.
+
+**Exclusions:** Do not add any logo, brand mark, icon or watermark. Do not add any legend, legend box, caption box, footnote, key takeaways box, callout box, or any other explanatory text block anywhere in the diagram. No "Note:", no "Key Takeaways:", no colour key, no numbered step badges, no sample chat messages, no sample JSON, no sample SQL, no transcripts. Do not draw a person, a robot, a chat bubble, a laptop or computer outline, a cloud shape, a database cylinder, a lock or key icon, a wrench, or an appliance. The diagram must contain only the four boundaries with their labels, the nodes, the tunnel, and the connection arrows with their labels. Nothing else. Do not render the diagram inside a browser window, a README page, a terminal window, a device frame, or any other mock-up; deliver the diagram alone, edge to edge on the canvas.

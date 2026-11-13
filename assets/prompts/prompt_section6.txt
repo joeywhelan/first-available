@@ -1,0 +1,22 @@
+# Section 6 — Talk to the Agent from Code
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section6.png`, under 1 MB) illustrating that the notebook talks to the Netomi agent through the Chat API: one POST per customer message, with the reply streaming back in numbered chunks that are put back together into one plain answer. The notebook on the left, the Chat API and agent on the right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: amber (#F5A524) for the notebook, the Claude API and the outgoing arrow, violet (#9B7BFF) for the Chat API, the agent and the reply chunks. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: the notebook** — an amber rounded rectangle labelled "demo.ipynb". Above it, a smaller amber rounded rectangle labelled "Claude API", joined to the notebook by a thin amber arrow labelled "persona".
+- **Inside the notebook's right edge: the reassembler** — a small amber tab labelled "send_message".
+- **Centre right: the Chat API** — a violet rounded rectangle labelled "Chat API".
+- **Right: the agent** — the largest element, a violet rounded rectangle labelled "virtual agent", joined to the Chat API by a short violet line.
+- **The request** — one thick amber arrow along the top from the notebook to the Chat API, labelled "POST message", with "conversationId" in smaller text beneath the label.
+- **The reply** — along the bottom, three small violet square tiles travel from the Chat API back toward "send_message", numbered "0", "1" and "2"; the tile nearest the notebook carries "SUCCESS" beneath it.
+
+**Design principle:**
+The image communicates a single idea: "one message out, a stream of chunks back, one answer." The request runs above and the reply below, so the two directions never cross.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `demo.ipynb`, `Claude API`, `persona`, `send_message`, `Chat API`, `virtual agent`, `POST message`, `conversationId`, `0`, `1`, `2`, `SUCCESS`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. `conversationId` is camelCase; keep it that way. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No chat bubbles, sample messages, people or avatars. Only the nodes, arrows, and labels listed above appear in the frame.

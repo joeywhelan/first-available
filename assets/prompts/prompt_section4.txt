@@ -1,0 +1,22 @@
+# Section 4 — The Agent's Leash: a Three-Tool MCP Server
+
+A dark-themed technical diagram (1800 × 600 px, 3:1 ratio, delivered as an opaque PNG saved to `assets/images/section4.png`, under 1 MB) illustrating that the agent's only way to the data is three tools on an MCP server, reached through one token-checked tunnel, whose database user can run three functions and nothing else. The agent on the left, the tunnel and server in the centre, AlloyDB on the right. Background near-black graphite (#101217), flat vector rendering, no 3D effects, at least 5% clear margin on every edge. Colours: violet (#9B7BFF) for the agent, coral (#FF6B5A) for the ngrok tunnel and its arrow, cyan (#3DD6D0) for the MCP server and its arrow into AlloyDB, green (#5BD67A) for AlloyDB and its functions, and muted grey (#6B7280) for the tables and the denied path. Labels in a clean monospaced face, light grey unless noted.
+
+**Canvas and sizing:** The image sits in the body of a LinkedIn article (and in `assets/article.md` on GitHub), which scales it to a content column roughly 700–830 px wide, so this canvas displays at about 830 × 277 px or smaller. Every label must stay legible at that size: the smallest text is no smaller than 24 px on the 1800-px canvas, node titles are at least 36 px, and arrow labels at least 28 px. Prefer fewer, larger labels.
+
+**Key components (left to right):**
+
+- **Left: the agent** — a violet rounded rectangle labelled "virtual agent".
+- **Left of centre: the tunnel** — a short horizontal coral pipe, drawn as a tube rather than a box, labelled "ngrok". One thick coral arrow runs from the agent through the tube to the MCP server, labelled "Bearer token".
+- **Centre: the MCP server** — a cyan rounded rectangle titled "MCP server". Inside it, three stacked rows in light grey: "search_technicians", "search_parts", "book_slot".
+- **Right: AlloyDB** — the largest element, a green rounded rectangle titled "AlloyDB". Along its left edge, three small green chips stacked vertically: "search_technicians()", "search_parts()", "book_slot()". Behind them, further right inside AlloyDB, four muted-grey table strips: "technicians", "parts", "slots", "bookings", connected only to the three chips by thin green lines.
+- **The single path in** — one thick cyan arrow runs from the MCP server to the three chips, labelled "mcp_search".
+- **The denied path** — one thin dashed muted-grey arrow runs from the MCP server straight toward the tables, passing above the chips, and stops at a short thick light-slate (#C7CCDA) bar before reaching them, labelled "denied".
+
+**Design principle:**
+The image communicates a single idea: "three doors and no others." The tables must be visibly reachable only through the three function chips, and the dashed denied arrow must clearly stop at its bar.
+
+**Text accuracy:**
+Every string must be copied character-for-character; the only permitted strings in the frame are: `virtual agent`, `ngrok`, `Bearer token`, `MCP server`, `search_technicians`, `search_parts`, `book_slot`, `AlloyDB`, `search_technicians()`, `search_parts()`, `book_slot()`, `technicians`, `parts`, `slots`, `bookings`, `mcp_search`, `denied`. Underscores, camelCase and punctuation are intentional; do not add spaces, hyphens or line breaks inside a name. Each tool name appears twice by design: once on the server, once with `()` as a database function. Proofread every label letter by letter before delivering; regenerate rather than deliver a misspelled frame.
+
+**Exclusions:** No legend, caption box, title, footnote, colour key, or any explanatory text block. No logos, brand marks, icons of real products, or watermarks. No browser, terminal, or device mock-up. No padlocks, key icons, shields or walls. Only the nodes, arrows, and labels listed above appear in the frame.

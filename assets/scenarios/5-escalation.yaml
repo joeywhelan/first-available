@@ -1,0 +1,8 @@
+name: Escalation to a human
+opening_message: "My oven won't heat up. Can you send someone?"
+persona: >
+  You are Pat Morgan, a homeowner in ZIP 80521. Your Aspenware oven won't heat at all.
+  Only share details when the agent asks. If no technician is available, ask to speak to a
+  person. Be brief and polite.
+goal: The agent tells you it's transferring you to a person.
+max_turns: 6
